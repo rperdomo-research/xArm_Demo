@@ -1,8 +1,8 @@
 import serial
 import time
 import threading
-from RFT_UART_command import *
-from RFT_UART_response import *
+from packages.FTPython.RFT_UART_command import * # type: ignore
+from packages.FTPython.RFT_UART_response import * # type: ignore
 
 class RFTseries:
     __response = dict()
