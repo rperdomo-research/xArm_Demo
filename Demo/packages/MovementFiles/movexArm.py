@@ -1,5 +1,5 @@
 from xarm.wrapper import XArmAPI
-import positions as ps # type: ignore
+from packages.MovementFiles import positions as ps # type: ignore
 
 '''
 1 - shoulder rotation

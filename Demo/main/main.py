@@ -19,7 +19,7 @@ def main():
 
     print("Hello")
 
-    robot.limitTest([90, 0, -180, 0, 0, 0])
+    robot.limitTest([90, 0, -135, 135, 0, 0])
 
     print("Done")
 
