@@ -1,4 +1,5 @@
 from xarm.wrapper import XArmAPI
+import positions as ps # type: ignore
 
 '''
 1 - shoulder rotation
@@ -33,6 +34,10 @@ class Arm:
         pass
 
     def goToEnd(self):
+        pass
+
+    def goToCalibrationZone(self):
+        self.arm.set_servo_angle(angle=ps.CAMERA_CALIBRATE, speed=self.speed, wait=True)
         pass
 
     def grabObject(self):
