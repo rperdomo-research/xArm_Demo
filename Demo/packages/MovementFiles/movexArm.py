@@ -1,5 +1,6 @@
 from xarm.wrapper import XArmAPI
 from packages.MovementFiles import positions as ps # type: ignore
+import numpy as np
 
 '''
 1 - shoulder rotation
@@ -39,6 +40,13 @@ class Arm:
     def goToCalibrationZone(self):
         self.arm.set_servo_angle(angle=ps.CAMERA_CALIBRATE, speed=self.speed, wait=True)
         pass
+
+    def goToObject(self, centerR, point):
+        theta = 0
+        num = np.dot(centerR, point)
+        den = np.linalg.norm(centerR, 2)*np.linalg.norm(point, 2)
+        theta = np.arccos(num/den)
+        return 90 + np.degrees(theta)
 
     def grabObject(self):
         pass

@@ -43,7 +43,12 @@ class CamUtil:
         pass
 
     def __detectPoints(self):
-        return np.array()
+        #return np.array()
+        pass
+
+    def detectObject(self):
+        # returns object center and robot location
+        #rl = [img.shape[0]/2, 1]
         pass
 
     def calibrateCamera(self, pixelList, IRLDist):

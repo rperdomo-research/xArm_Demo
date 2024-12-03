@@ -14,7 +14,13 @@ def main():
     robot = mv.Arm("192.168.1.224") #connect to robot via address
     #force = ft.RFTseries(port="COM3")
     camera = cu.CamUtil()
-    #calibrate(robot, camera)
+    #H_matrix = calibrate(robot, camera)
+
+    # detect block
+    # returns center point and scene center (robot location)
+
+    # rotate to block
+    # turnToObject(center, vector) # <- vector from center point 
 
 
     print("Hello")
