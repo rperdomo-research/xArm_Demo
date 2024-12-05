@@ -43,15 +43,50 @@ class CamUtil:
         pass
 
     def __detectPoints(self):
-        #return np.array()
-        pass
+        corn = []
+        cornArray = np.array()
+        '''
+        marker = cv2.imread("/home/richard/Desktop/xArm_Demo/Demo/testStuff/sceneAruco2.PNG")
+
+        cv2.imshow("Marker", marker)
+        cv2.waitKey(2000)
+
+        gray = cv2.cvtColor(marker.copy(), cv2.COLOR_BGR2GRAY)
+        _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
+
+        cv2.imshow("thresh", thresh)
+        cv2.waitKey(5000)
+
+        aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_1000)
+        param = cv2.aruco.DetectorParameters()
+
+        detector = cv2.aruco.ArucoDetector(aruco_dict, param)
+
+        corners, ids, rejected = detector.detectMarkers(thresh)
+
+        print("Detected markers: ", ids)
+        if ids is not None:
+            for markerCorners in corners:
+                print(markerCorners)
+                topleft, topright, bottomright, bottomleft = markerCorners[0]
+
+                center_x = int((topleft[0]+bottomright[0]) / 2)
+                center_y = int((topleft[1]+bottomright[1]) / 2)
+                print("{}, {}".format(center_x, center_y))
+                cv2.circle(marker, (center_x, center_y), 5, (0, 0, 255), -1)
+                corn.append([center_x, center_y])
+
+            cv2.imshow("Detected", marker)
+            cv2.waitKey(5000)
+        '''
+        return np.append(cornArray, corn)
 
     def detectObject(self):
         # returns object center and robot location
         #rl = [img.shape[0]/2, 1]
         pass
 
-    def calibrateCamera(self, pixelList, IRLDist):
+    def calibrateCamera(self):
         _IRLpoints = np.array([[0, 0], [0, 16.375], [21.25, 0]])
         pixelList = self.__detectPoints().sort()
         H, mask = cv2.findHomography(pixelList, _IRLpoints, cv2.RANSAC, 5.0)
