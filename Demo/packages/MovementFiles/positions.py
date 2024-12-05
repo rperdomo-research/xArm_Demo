@@ -31,4 +31,5 @@ GOTO_END = []
 GRAB = []
 LETGO = []
 UPRIGHT = [90, 0, -180, 0, 0, 0]
-CAMERA_CALIBRATE = [90, 0, -135, 135, 0, 0]
+CAMERA_CALIBRATE = [90, 0, -135, 135, 0, 0] # rotate wrist 180 until new adapter made
+WORK_ON_END_EFFECTOR = []

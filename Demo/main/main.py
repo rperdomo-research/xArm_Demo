@@ -4,6 +4,8 @@ sys.path.insert(0, 'C:\\Users\\robotpc\\Desktop\\Research\\xArm_Demo\\Demo')
 from packages.FTPython import RFT_UART as ft # type: ignore
 from packages.MovementFiles import movexArm as mv # type: ignore
 from packages.Camera import cameraUtil as cu # type: ignore
+from packages.MovementFiles import positions as ps # type: ignore
+
 
 import pyrealsense2 as rs
 import numpy as np
@@ -13,7 +15,7 @@ def main():
 
     robot = mv.Arm("192.168.1.224") #connect to robot via address
     #force = ft.RFTseries(port="COM3")
-    camera = cu.CamUtil()
+    #camera = cu.CamUtil()
     #H_matrix = calibrate(robot, camera)
 
     # detect block
@@ -25,7 +27,7 @@ def main():
 
     print("Hello")
 
-    robot.limitTest([90, 0, -135, 135, 0, 0])
+    robot.limitTest([90, 0, -135, 135, 180, 0])
 
     print("Done")
 
