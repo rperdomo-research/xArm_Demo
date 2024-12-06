@@ -40,22 +40,21 @@ class CamUtil:
             cv2.namedWindow('RealSense', cv2.WINDOW_AUTOSIZE)
             cv2.imshow('RealSense', color_image)
             time.sleep(5)
-        pass
+        
 
     def __detectPoints(self):
         corn = []
-        cornArray = np.array()
-        '''
-        marker = cv2.imread("/home/richard/Desktop/xArm_Demo/Demo/testStuff/sceneAruco2.PNG")
+        
+        marker = cv2.imread("C:/Users/robotpc/Desktop/Research/xArm_Demo/Demo/testStuff/sceneAruco2.PNG")
 
-        cv2.imshow("Marker", marker)
-        cv2.waitKey(2000)
+        #cv2.imshow("Marker", marker)
+        #cv2.waitKey(2000)
 
         gray = cv2.cvtColor(marker.copy(), cv2.COLOR_BGR2GRAY)
         _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
 
-        cv2.imshow("thresh", thresh)
-        cv2.waitKey(5000)
+        #cv2.imshow("thresh", thresh)
+        #cv2.waitKey(5000)
 
         aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_1000)
         param = cv2.aruco.DetectorParameters()
@@ -76,10 +75,10 @@ class CamUtil:
                 cv2.circle(marker, (center_x, center_y), 5, (0, 0, 255), -1)
                 corn.append([center_x, center_y])
 
-            cv2.imshow("Detected", marker)
-            cv2.waitKey(5000)
-        '''
-        return np.append(cornArray, corn)
+            #cv2.imshow("Detected", marker)
+            #cv2.waitKey(5000)
+        
+        return np.array(corn)
 
     def detectObject(self):
         # returns object center and robot location
@@ -88,6 +87,7 @@ class CamUtil:
 
     def calibrateCamera(self):
         _IRLpoints = np.array([[0, 0], [0, 16.375], [21.25, 0]])
-        pixelList = self.__detectPoints().sort()
+        pixelList = self.__detectPoints() #.sort()
+        print("pixelList: {}".format(pixelList))
         H, mask = cv2.findHomography(pixelList, _IRLpoints, cv2.RANSAC, 5.0)
         return H

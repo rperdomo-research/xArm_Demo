@@ -21,10 +21,11 @@ class Arm:
         self.arm.motion_enable(enable=True)
         self.arm.set_mode(0)
         self.arm.set_state(state=0)
-
-        self.arm.reset(wait=True)
-
+        #self.arm.reset(wait=True)
         self.speed = 50
+        #self.arm.set_tcp_load(1.149, , wait=True)
+
+        self.arm.set_servo_angle(angle=ps.HOME, speed=self.speed, wait=True)
 
     def limitTest(self, position):
         self.arm.set_servo_angle(angle=position, speed=self.speed, wait=True)

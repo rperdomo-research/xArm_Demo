@@ -15,8 +15,12 @@ def main():
 
     robot = mv.Arm("192.168.1.224") #connect to robot via address
     #force = ft.RFTseries(port="COM3")
-    #camera = cu.CamUtil()
-    #H_matrix = calibrate(robot, camera)
+    camera = cu.CamUtil()
+    H_matrix = camera.calibrateCamera()
+
+    print(H_matrix)
+
+    #H_matrix*np.array([1, 1, 0])
 
     # detect block
     # returns center point and scene center (robot location)
@@ -27,7 +31,9 @@ def main():
 
     print("Hello")
 
-    robot.limitTest([90, 0, -135, 135, 180, 0])
+    #robot.limitTest([0, 0, 0, -90, 0, 0])
+
+    #robot.goToCalibrationZone()
 
     print("Done")
 

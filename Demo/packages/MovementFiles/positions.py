@@ -25,11 +25,9 @@ WR_UpperLimit = 90
 EE_LowerLimit = 0
 EE_UpperLimit = 0
 
-
-GOTO_START = []
-GOTO_END = []
+HOME = [0, -19.4, -22.1, 41.4, 0, 0]
 GRAB = []
 LETGO = []
 UPRIGHT = [90, 0, -180, 0, 0, 0]
-CAMERA_CALIBRATE = [90, 0, -135, 135, 0, 0] # rotate wrist 180 until new adapter made
-WORK_ON_END_EFFECTOR = []
+CAMERA_CALIBRATE = [90, 0, -135, 135, -180, 0] # rotate wrist 180 until new adapter made
+WORK_ON_END_EFFECTOR = [0, 0, 0, -90, 0, 0]
